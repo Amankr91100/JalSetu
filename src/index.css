@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-sm border border-navy-100 shadow-card;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-flood-600 text-white font-medium rounded-lg
+           hover:bg-flood-700 focus:outline-none focus:ring-2 focus:ring-flood-500 focus:ring-offset-2
+           transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-navy-800 font-medium rounded-lg
+           border border-navy-200 hover:bg-navy-50 focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2
+           transition-colors duration-150;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-danger-600 text-white font-medium rounded-lg
+           hover:bg-danger-700 focus:outline-none focus:ring-2 focus:ring-danger-500 focus:ring-offset-2
+           transition-colors duration-150;
+  }
+  .input-field {
+    @apply w-full px-3 py-2 border border-navy-200 rounded-lg bg-white text-navy-900
+           placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-flood-500 focus:border-transparent
+           transition-shadow duration-150;
+  }
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-navy-600 hover:bg-navy-100 hover:text-navy-900
+           transition-colors duration-150 text-sm font-medium;
+  }
+  .sidebar-link-active {
+    @apply bg-flood-50 text-flood-700 hover:bg-flood-100 hover:text-flood-800;
+  }
+}
+
+/* MapLibre overrides */
+.maplibregl-map {
+  font-family: Inter, system-ui, sans-serif;
+}
+.maplibregl-ctrl-group {
+  @apply shadow-card border border-navy-100 !important;
+}
+.maplibregl-ctrl-group button {
+  @apply w-8 h-8 !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-navy-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-navy-400;
+}
