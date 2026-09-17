@@ -1,6 +1,6 @@
-import { MapPin, Users, Phone, Accessibility, Building2 } from 'lucide-react';
-import type { Shelter } from '../types';
-import { cn } from '../utils/cn';
+import { MapPin, Phone, Accessibility, Building2 } from "lucide-react";
+import type { Shelter } from "../types";
+import { cn } from "../utils/cn";
 
 interface Props {
   shelter: Shelter;
@@ -18,7 +18,9 @@ export function ShelterCard({ shelter, onViewDetails }: Props) {
             <Building2 className="w-5 h-5" />
           </div>
           <div className="min-w-0">
-            <h3 className="font-semibold text-navy-900 truncate">{shelter.name}</h3>
+            <h3 className="font-semibold text-navy-900 truncate">
+              {shelter.name}
+            </h3>
             <p className="text-sm text-navy-500 flex items-center gap-1 mt-0.5">
               <MapPin className="w-3.5 h-3.5" />
               {shelter.distanceKm.toFixed(1)} km · {shelter.address}
@@ -27,10 +29,10 @@ export function ShelterCard({ shelter, onViewDetails }: Props) {
         </div>
         <span
           className={cn(
-            'text-xs font-medium px-2 py-1 rounded-full capitalize shrink-0',
-            shelter.status === 'open' && 'bg-success-50 text-success-700',
-            shelter.status === 'full' && 'bg-danger-50 text-danger-700',
-            shelter.status === 'closed' && 'bg-navy-100 text-navy-600'
+            "text-xs font-medium px-2 py-1 rounded-full capitalize shrink-0",
+            shelter.status === "open" && "bg-success-50 text-success-700",
+            shelter.status === "full" && "bg-danger-50 text-danger-700",
+            shelter.status === "closed" && "bg-navy-100 text-navy-600",
           )}
         >
           {shelter.status}
@@ -48,7 +50,12 @@ export function ShelterCard({ shelter, onViewDetails }: Props) {
         </div>
         <div>
           <p className="text-xs text-navy-500">Available</p>
-          <p className={cn('font-semibold', shelter.available > 0 ? 'text-success-700' : 'text-danger-600')}>
+          <p
+            className={cn(
+              "font-semibold",
+              shelter.available > 0 ? "text-success-700" : "text-danger-600",
+            )}
+          >
             {shelter.available}
           </p>
         </div>
@@ -58,8 +65,12 @@ export function ShelterCard({ shelter, onViewDetails }: Props) {
         <div className="h-1.5 bg-navy-100 rounded-full overflow-hidden">
           <div
             className={cn(
-              'h-full rounded-full transition-all',
-              occupancyPct >= 90 ? 'bg-danger-500' : occupancyPct >= 70 ? 'bg-warning-500' : 'bg-success-500'
+              "h-full rounded-full transition-all",
+              occupancyPct >= 90
+                ? "bg-danger-500"
+                : occupancyPct >= 70
+                  ? "bg-warning-500"
+                  : "bg-success-500",
             )}
             style={{ width: `${occupancyPct}%` }}
           />

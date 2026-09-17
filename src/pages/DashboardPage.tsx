@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   AreaChart,
   Area,
@@ -11,7 +11,7 @@ import {
   Pie,
   Cell,
   Legend,
-} from 'recharts';
+} from "recharts";
 import {
   Map,
   FileText,
@@ -19,21 +19,20 @@ import {
   Route,
   AlertTriangle,
   Users,
-  MapPin,
   Shield,
   Bell,
   Layers,
-} from 'lucide-react';
-import { StatCard } from '../components/StatCard';
-import { AlertCard } from '../components/AlertCard';
-import { riskMetrics, floodTrend, alerts, DEMO_LABEL } from '../data/mockData';
-import { formatNumber, formatArea } from '../utils/format';
+} from "lucide-react";
+import { StatCard } from "../components/StatCard";
+import { AlertCard } from "../components/AlertCard";
+import { riskMetrics, floodTrend, alerts, DEMO_LABEL } from "../data/mockData";
+import { formatNumber, formatArea } from "../utils/format";
 
 const RISK_COLORS = {
-  low: '#52c41a',
-  moderate: '#faad14',
-  high: '#fa8c16',
-  critical: '#f5222d',
+  low: "#52c41a",
+  moderate: "#faad14",
+  high: "#fa8c16",
+  critical: "#f5222d",
 };
 
 const pieData = riskMetrics.riskDistribution.map((d) => ({
@@ -43,20 +42,42 @@ const pieData = riskMetrics.riskDistribution.map((d) => ({
 }));
 
 const quickActions = [
-  { to: '/map', label: 'View Flood Map', icon: Map, color: 'bg-flood-50 text-flood-700' },
-  { to: '/reports', label: 'Generate Report', icon: FileText, color: 'bg-navy-50 text-navy-700' },
-  { to: '/shelters', label: 'Find Shelters', icon: Building2, color: 'bg-success-50 text-success-700' },
-  { to: '/routes', label: 'Plan Evacuation', icon: Route, color: 'bg-warning-50 text-warning-700' },
+  {
+    to: "/map",
+    label: "View Flood Map",
+    icon: Map,
+    color: "bg-flood-50 text-flood-700",
+  },
+  {
+    to: "/reports",
+    label: "Generate Report",
+    icon: FileText,
+    color: "bg-navy-50 text-navy-700",
+  },
+  {
+    to: "/shelters",
+    label: "Find Shelters",
+    icon: Building2,
+    color: "bg-success-50 text-success-700",
+  },
+  {
+    to: "/routes",
+    label: "Plan Evacuation",
+    icon: Route,
+    color: "bg-warning-50 text-warning-700",
+  },
 ];
 
 export function DashboardPage() {
-  const recentAlerts = alerts.filter((a) => a.status === 'active').slice(0, 4);
+  const recentAlerts = alerts.filter((a) => a.status === "active").slice(0, 4);
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-navy-900">Overview</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-navy-900">
+            Overview
+          </h1>
           <p className="text-sm text-navy-500 mt-0.5">
             Situational summary · {DEMO_LABEL} · Updated for demo scenario
           </p>
@@ -109,11 +130,18 @@ export function DashboardPage() {
       {/* Charts row */}
       <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="lg:col-span-2 glass-card rounded-xl p-4 sm:p-5">
-          <h2 className="text-sm font-semibold text-navy-900 mb-1">Flood trend (affected area)</h2>
-          <p className="text-xs text-navy-500 mb-4">Hourly mock series · {DEMO_LABEL}</p>
+          <h2 className="text-sm font-semibold text-navy-900 mb-1">
+            Flood trend (affected area)
+          </h2>
+          <p className="text-xs text-navy-500 mb-4">
+            Hourly mock series · {DEMO_LABEL}
+          </p>
           <div className="h-56 sm:h-64">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={floodTrend} margin={{ top: 5, right: 10, left: 0, bottom: 0 }}>
+              <AreaChart
+                data={floodTrend}
+                margin={{ top: 5, right: 10, left: 0, bottom: 0 }}
+              >
                 <defs>
                   <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#1890ff" stopOpacity={0.3} />
@@ -121,11 +149,22 @@ export function DashboardPage() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis dataKey="time" tick={{ fontSize: 11, fill: '#627d98' }} />
-                <YAxis tick={{ fontSize: 11, fill: '#627d98' }} unit=" km²" width={50} />
+                <XAxis
+                  dataKey="time"
+                  tick={{ fontSize: 11, fill: "#627d98" }}
+                />
+                <YAxis
+                  tick={{ fontSize: 11, fill: "#627d98" }}
+                  unit=" km²"
+                  width={50}
+                />
                 <Tooltip
-                  contentStyle={{ borderRadius: 8, border: '1px solid #d9e2ec', fontSize: 12 }}
-                  formatter={(v: number) => [`${v} km²`, 'Affected area']}
+                  contentStyle={{
+                    borderRadius: 8,
+                    border: "1px solid #d9e2ec",
+                    fontSize: 12,
+                  }}
+                  formatter={(v: number) => [`${v} km²`, "Affected area"]}
                 />
                 <Area
                   type="monotone"
@@ -140,8 +179,12 @@ export function DashboardPage() {
         </div>
 
         <div className="glass-card rounded-xl p-4 sm:p-5">
-          <h2 className="text-sm font-semibold text-navy-900 mb-1">Risk level distribution</h2>
-          <p className="text-xs text-navy-500 mb-4">Zones by severity · {DEMO_LABEL}</p>
+          <h2 className="text-sm font-semibold text-navy-900 mb-1">
+            Risk level distribution
+          </h2>
+          <p className="text-xs text-navy-500 mb-4">
+            Zones by severity · {DEMO_LABEL}
+          </p>
           <div className="h-56 sm:h-64">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -158,17 +201,27 @@ export function DashboardPage() {
                   {pieData.map((entry) => (
                     <Cell
                       key={entry.name}
-                      fill={RISK_COLORS[entry.name.toLowerCase() as keyof typeof RISK_COLORS]}
+                      fill={
+                        RISK_COLORS[
+                          entry.name.toLowerCase() as keyof typeof RISK_COLORS
+                        ]
+                      }
                     />
                   ))}
                 </Pie>
                 <Legend
                   verticalAlign="bottom"
                   height={36}
-                  formatter={(value) => <span className="text-xs text-navy-600">{value}</span>}
+                  formatter={(value) => (
+                    <span className="text-xs text-navy-600">{value}</span>
+                  )}
                 />
                 <Tooltip
-                  contentStyle={{ borderRadius: 8, border: '1px solid #d9e2ec', fontSize: 12 }}
+                  contentStyle={{
+                    borderRadius: 8,
+                    border: "1px solid #d9e2ec",
+                    fontSize: 12,
+                  }}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -179,7 +232,9 @@ export function DashboardPage() {
       {/* Quick actions + Alerts */}
       <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="glass-card rounded-xl p-4 sm:p-5">
-          <h2 className="text-sm font-semibold text-navy-900 mb-4">Quick actions</h2>
+          <h2 className="text-sm font-semibold text-navy-900 mb-4">
+            Quick actions
+          </h2>
           <div className="grid grid-cols-2 gap-3">
             {quickActions.map(({ to, label, icon: Icon, color }) => (
               <Link
@@ -190,7 +245,9 @@ export function DashboardPage() {
                 <div className={`p-2.5 rounded-lg ${color}`}>
                   <Icon className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-medium text-navy-700">{label}</span>
+                <span className="text-xs font-medium text-navy-700">
+                  {label}
+                </span>
               </Link>
             ))}
           </div>
@@ -198,8 +255,13 @@ export function DashboardPage() {
 
         <div className="lg:col-span-2 space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-navy-900">Recent alerts</h2>
-            <Link to="/alerts" className="text-xs font-medium text-flood-600 hover:text-flood-800">
+            <h2 className="text-sm font-semibold text-navy-900">
+              Recent alerts
+            </h2>
+            <Link
+              to="/alerts"
+              className="text-xs font-medium text-flood-600 hover:text-flood-800"
+            >
               View all
             </Link>
           </div>

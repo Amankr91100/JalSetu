@@ -11,8 +11,6 @@
 import { floodZones, floodExtentGeoJSON, riskMetrics, floodTrend } from '../data/mockData';
 import type { FloodZone, RiskMetrics, FloodTrendPoint } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
-
 export async function getFloodZones(_regionId?: string): Promise<FloodZone[]> {
   // TODO: return fetch(`${API_BASE}/api/v1/flood/zones?region=${regionId}`).then(r => r.json())
   return Promise.resolve(floodZones);
