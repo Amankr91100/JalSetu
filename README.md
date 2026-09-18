@@ -1,4 +1,4 @@
-# Flood Guard
+# JalSetu
 
 **Turning Flood Data into Faster Decisions**
 
@@ -63,13 +63,13 @@ src/
 
 Service modules under `src/services/` are written to be swapped to real backends:
 
-| Service        | Suggested backend                          |
-|----------------|--------------------------------------------|
-| floodService   | FastAPI / GEE / Sentinel-1 processing      |
-| alertService   | WebSocket or REST + Redis                  |
-| shelterService | PostgreSQL + PostGIS                       |
-| routeService   | OSRM / GraphHopper with flood avoidance    |
-| reportService  | PDF/CSV generators (reportlab, etc.)       |
+| Service        | Suggested backend                       |
+| -------------- | --------------------------------------- |
+| floodService   | FastAPI / GEE / Sentinel-1 processing   |
+| alertService   | WebSocket or REST + Redis               |
+| shelterService | PostgreSQL + PostGIS                    |
+| routeService   | OSRM / GraphHopper with flood avoidance |
+| reportService  | PDF/CSV generators (reportlab, etc.)    |
 
 1. Copy `.env.example` → `.env`
 2. Set `VITE_API_BASE_URL` to your API

@@ -248,7 +248,7 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-navy-900">
-              How Flood Guard helps
+              How JalSetu helps
             </h2>
             <p className="mt-3 text-navy-600">
               From satellite detection to validated decision support — a single
@@ -335,14 +335,14 @@ export function LandingPage() {
             Make every flood decision faster and more informed.
           </h2>
           <p className="mt-3 text-navy-600">
-            Open the Flood Guard dashboard to explore maps, risk analysis,
-            shelters, and alerts — all with clearly labelled demo data.
+            Open the JalSetu dashboard to explore maps, risk analysis, shelters,
+            and alerts — all with clearly labelled demo data.
           </p>
           <Link
             to="/dashboard"
             className="mt-8 inline-flex btn-primary text-base px-6 py-3"
           >
-            Open Flood Guard Dashboard
+            Open JalSetu Dashboard
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -353,7 +353,7 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Waves className="w-5 h-5 text-flood-600" />
-            <span className="font-semibold text-navy-900">Flood Guard</span>
+            <span className="font-semibold text-navy-900">JalSetu</span>
             <span className="text-navy-400 text-sm">
               · Turning Flood Data into Faster Decisions
             </span>

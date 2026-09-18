@@ -34,7 +34,7 @@ export function Navbar() {
               <Waves className="w-5 h-5" />
             </div>
             <div>
-              <span className="font-semibold text-navy-900 tracking-tight">Flood Guard</span>
+              <span className="font-semibold text-navy-900 tracking-tight">JalSetu</span>
               <span className="hidden sm:block text-[10px] text-navy-500 -mt-0.5">Decision Support</span>
             </div>
           </Link>

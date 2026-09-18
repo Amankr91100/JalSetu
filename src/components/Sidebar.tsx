@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   Activity,
@@ -11,19 +11,19 @@ import {
   Settings,
   Waves,
   X,
-} from 'lucide-react';
-import { cn } from '../utils/cn';
+} from "lucide-react";
+import { cn } from "../utils/cn";
 
 const links = [
-  { to: '/dashboard', label: 'Overview', icon: LayoutDashboard },
-  { to: '/dashboard/monitoring', label: 'Live Monitoring', icon: Activity },
-  { to: '/map', label: 'Flood Map', icon: Map },
-  { to: '/risk', label: 'Risk Analysis', icon: BarChart3 },
-  { to: '/shelters', label: 'Shelters', icon: Building2 },
-  { to: '/routes', label: 'Evacuation Routes', icon: Route },
-  { to: '/alerts', label: 'Alerts', icon: Bell },
-  { to: '/reports', label: 'Reports', icon: FileText },
-  { to: '/settings', label: 'Settings', icon: Settings },
+  { to: "/dashboard", label: "Overview", icon: LayoutDashboard },
+  { to: "/dashboard/monitoring", label: "Live Monitoring", icon: Activity },
+  { to: "/map", label: "Flood Map", icon: Map },
+  { to: "/risk", label: "Risk Analysis", icon: BarChart3 },
+  { to: "/shelters", label: "Shelters", icon: Building2 },
+  { to: "/routes", label: "Evacuation Routes", icon: Route },
+  { to: "/alerts", label: "Alerts", icon: Bell },
+  { to: "/reports", label: "Reports", icon: FileText },
+  { to: "/settings", label: "Settings", icon: Settings },
 ];
 
 interface Props {
@@ -45,8 +45,8 @@ export function Sidebar({ open, onClose }: Props) {
 
       <aside
         className={cn(
-          'fixed top-0 left-0 z-50 h-full w-64 bg-navy-950 text-white flex flex-col transition-transform duration-200 lg:translate-x-0 lg:static lg:z-auto',
-          open ? 'translate-x-0' : '-translate-x-full'
+          "fixed top-0 left-0 z-50 h-full w-64 bg-navy-950 text-white flex flex-col transition-transform duration-200 lg:translate-x-0 lg:static lg:z-auto",
+          open ? "translate-x-0" : "-translate-x-full",
         )}
       >
         <div className="flex items-center justify-between px-4 h-16 border-b border-navy-800">
@@ -55,7 +55,7 @@ export function Sidebar({ open, onClose }: Props) {
               <Waves className="w-5 h-5" />
             </div>
             <div>
-              <span className="font-semibold tracking-tight">Flood Guard</span>
+              <span className="font-semibold tracking-tight">JalSetu</span>
               <p className="text-[10px] text-navy-400">Command Centre</p>
             </div>
           </div>
@@ -73,14 +73,14 @@ export function Sidebar({ open, onClose }: Props) {
             <NavLink
               key={to}
               to={to}
-              end={to === '/dashboard'}
+              end={to === "/dashboard"}
               onClick={onClose}
               className={({ isActive }) =>
                 cn(
-                  'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
+                  "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                   isActive
-                    ? 'bg-flood-600/20 text-flood-300'
-                    : 'text-navy-300 hover:bg-navy-800 hover:text-white'
+                    ? "bg-flood-600/20 text-flood-300"
+                    : "text-navy-300 hover:bg-navy-800 hover:text-white",
                 )
               }
             >
@@ -91,7 +91,9 @@ export function Sidebar({ open, onClose }: Props) {
         </nav>
 
         <div className="p-4 border-t border-navy-800">
-          <p className="text-[10px] uppercase tracking-wider text-navy-500 font-medium">Prototype</p>
+          <p className="text-[10px] uppercase tracking-wider text-navy-500 font-medium">
+            Prototype
+          </p>
           <p className="text-xs text-navy-400 mt-0.5">Demo data · Not live</p>
         </div>
       </aside>
